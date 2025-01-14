@@ -1,9 +1,10 @@
+import TextLogo from "@/app/svgs/textLogo";
 import * as S from "./styles";
 
 export default function Header() {
   return (
     <S.Container>
-      <S.Title>BOBMUKZA</S.Title>
+      <TextLogo />
     </S.Container>
   );
 }
