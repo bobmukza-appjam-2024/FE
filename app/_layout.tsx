@@ -1,9 +1,11 @@
-import { NavigationContainer } from "@react-navigation/native";
-import { Stack } from "expo-router";
 import "react-native-reanimated";
-import SignUp from "./(signup)";
 import { View } from "@/components/Themed";
+import Header from "./components/header/header";
 
 export default function RootLayoutNav() {
-  return <View></View>;
+  return (
+    <View>
+      <Header />
+    </View>
+  );
 }
