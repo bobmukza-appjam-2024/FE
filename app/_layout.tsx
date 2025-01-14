@@ -1,6 +1,6 @@
 import "react-native-reanimated";
-import { View } from "@/components/Themed";
 import Header from "./components/header/header";
+import { View } from "react-native";
 
 export default function RootLayoutNav() {
   return (

@@ -1,5 +1,4 @@
-import { View } from "@/components/Themed";
-import { Text } from "react-native";
+import { Text, View } from "react-native";
 
 export default function SignUp() {
   return (

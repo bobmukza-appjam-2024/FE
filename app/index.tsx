@@ -1,9 +1,5 @@
-import { View } from "@/components/Themed";
+import { View } from "react-native";
 
-export default function Start(){
-    return (
-        <View>
-            
-        </View>
-    )
+export default function Start() {
+  return <View></View>;
 }
