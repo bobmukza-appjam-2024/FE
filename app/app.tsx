@@ -8,7 +8,7 @@ import EditProfile from "./pages/editProfile";
 import WritePage from "./pages/write";
 import PostPage from "./pages/post";
 import SchedulePage from "./pages/schedule";
-import AddSchedulePage from "./addSchedule";
+import AddSchedulePage from "./pages/addSchedule";
 import ChatingPage from "./pages/chating";
 import ChatingListPage from "./pages/chatingList";
 
