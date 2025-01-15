@@ -18,7 +18,7 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen
-          name="Chating"
+          name="ChatingList"
           component={ChatingListPage}
           options={{ headerShown: false }}
         />
