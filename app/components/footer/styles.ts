@@ -16,7 +16,7 @@ export const Text = styled.Text`
   font-weight: 400;
 `;
 
-export const Wrapper = styled.View`
+export const Wrapper = styled.TouchableOpacity`
   align-items: center;
   justify-content: center;
   gap: 3px;
