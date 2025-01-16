@@ -1,4 +1,3 @@
-import { Text, TouchableOpacity } from "react-native";
 import * as S from "./styles";
 
 const Button = (label: string, func: () => void) => {
