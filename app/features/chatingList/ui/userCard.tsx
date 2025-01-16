@@ -9,7 +9,7 @@ interface UserCardProps {
 const UserCard = ({ user }: UserCardProps) => {
   return (
     <View>
-      <Image source={require("../../../images/profile.png")} />
+      <Image source={require("../../../svgs/profile")} />
       <Text>{user.nickname}</Text>
     </View>
   );
