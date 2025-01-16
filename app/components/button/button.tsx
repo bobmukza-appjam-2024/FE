@@ -1,10 +1,11 @@
 import { Text, TouchableOpacity } from "react-native";
+import * as S from "./styles";
 
 const Button = (label: string, func: () => void) => {
   return (
-    <TouchableOpacity onPress={func}>
-      <Text>{label}</Text>
-    </TouchableOpacity>
+    <S.Container onPress={func}>
+      <S.Text>{label}</S.Text>
+    </S.Container>
   );
 };
 
