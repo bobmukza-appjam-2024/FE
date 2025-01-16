@@ -14,4 +14,5 @@ export const Container = styled.View`
   height: 100px;
   position: absolute;
   top: 0;
+  width: 100%;
 `;
