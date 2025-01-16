@@ -3,6 +3,7 @@ import Header from "./components/header/header";
 import { View } from "react-native";
 import Footer from "./components/footer/footer";
 import { Slot } from "expo-router";
+import "./reset/reset.css";
 
 export default function RootLayoutNav() {
   return (
