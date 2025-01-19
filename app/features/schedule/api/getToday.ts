@@ -1,14 +1,12 @@
 import axios from "axios";
+import { getSelected } from "../store/getSelectedDay";
 
-interface day {
-  year: number;
-  month: number;
-  day: number;
-}
-
-const getToday = async ({ year, month, day }: day) => {
+const getToday = async () => {
+  const selected = await getSelected();
   const res = await axios.get(
-    `${process.env.REACT_APP_API_URL}/schedules?year=${year}&month=${month}`,
+    `${process.env.REACT_APP_API_URL}/schedules?year=${
+      selected?.split("-")[0]
+    }&month=${selected?.split("-")[1]}`,
     {
       headers: {
         // token
@@ -16,7 +14,7 @@ const getToday = async ({ year, month, day }: day) => {
     }
   );
   try {
-    return res.data[day - 1];
+    return res.data[selected ? selected.split("-")[0] : 1];
   } catch (e) {
     console.log(e);
   }
