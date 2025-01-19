@@ -8,8 +8,8 @@ import "./reset/reset.css";
 export default function RootLayoutNav() {
   return (
     <View style={{ width: "100%", height: "100%" }}>
-      <Slot />
       <Header />
+      <Slot />
       <Footer />
     </View>
   );
