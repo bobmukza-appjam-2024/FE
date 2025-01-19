@@ -1,5 +1,10 @@
-import { View } from "react-native";
+import ShowToday from "@/app/features/schedule/ui/showToday";
+import * as S from "./styles";
 
 export default function SchedulePage() {
-  return <View></View>;
+  return (
+    <S.Container>
+      <ShowToday />
+    </S.Container>
+  );
 }
