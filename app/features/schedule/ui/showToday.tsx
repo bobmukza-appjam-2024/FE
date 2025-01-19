@@ -50,6 +50,7 @@ LocaleConfig.defaultLocale = "ko";
 const ShowToday = () => {
   const [day, setDay] = useState({ year: 2025, month: 1, day: 1 });
   const [schedule, setSchedule] = useState({});
+  const [selectedDate, setSelectedDate] = useState("");
 
   useEffect(() => {
     const fetchSchedule = async () => {
@@ -67,10 +68,23 @@ const ShowToday = () => {
   return (
     <View>
       <Calendar
+        markedDates={{
+          [selectedDate]: {
+            selected: true,
+            selectedColor: "#FFEE97",
+            selectedTextColor: "white",
+          },
+        }}
+        theme={{
+          textDayStyle: { color: "#588C73" },
+        }}
         hideArrows={true}
+        hideDayNames={false}
         style={{
           borderWidth: 1,
           borderColor: "#588C73",
+          borderRadius: 20,
+          padding: 10,
         }}
         locale="ko"
         onDayPress={(d: Day) => {
@@ -79,6 +93,7 @@ const ShowToday = () => {
             month: d.month,
             day: d.day,
           });
+          setSelectedDate(d.dateString);
         }}
       />
     </View>
