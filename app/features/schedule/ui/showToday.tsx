@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { View } from "react-native";
 import { Calendar, LocaleConfig } from "react-native-calendars";
-import getToday from "../api/getToday";
 import { Day } from "@/app/entities/day";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 LocaleConfig.locales["ko"] = {
   monthNames: [
@@ -48,22 +48,7 @@ LocaleConfig.locales["ko"] = {
 LocaleConfig.defaultLocale = "ko";
 
 const ShowToday = () => {
-  const [day, setDay] = useState({ year: 2025, month: 1, day: 1 });
-  const [schedule, setSchedule] = useState({});
   const [selectedDate, setSelectedDate] = useState("");
-
-  useEffect(() => {
-    const fetchSchedule = async () => {
-      try {
-        const fetchedSchedule = await getToday(day);
-        setSchedule(fetchedSchedule);
-      } catch (error) {
-        console.error("Error fetching schedule:", error);
-      }
-    };
-
-    fetchSchedule();
-  }, [day]);
 
   return (
     <View>
@@ -88,11 +73,7 @@ const ShowToday = () => {
         }}
         locale="ko"
         onDayPress={(d: Day) => {
-          setDay({
-            year: d.year,
-            month: d.month,
-            day: d.day,
-          });
+          AsyncStorage.setItem("selectedDate", d.dateString);
           setSelectedDate(d.dateString);
         }}
       />
