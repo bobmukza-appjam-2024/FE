@@ -7,7 +7,7 @@ import "./reset/reset.css";
 
 export default function RootLayoutNav() {
   return (
-    <View style={{ width: "100%", height: "100%" }}>
+    <View style={{ width: "100%", height: "100%", backgroundColor: "#f5f5f5" }}>
       <Header />
       <Slot />
       <Footer />
