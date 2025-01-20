@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Text, View } from "react-native";
 import getToday from "../../api/getToday";
 import { Schedule } from "@/app/entities/schedule";
+import * as S from "./styles";
 
 const ShowSchedule = () => {
   const [schedule, setSchedule] = useState<Schedule | null>(null);
@@ -21,16 +22,19 @@ const ShowSchedule = () => {
   }, []);
 
   return (
-    <View>
+    <S.Container>
       {schedule ? (
         <View>
           <Text>{schedule.date}</Text>
-          <Text>{schedule.content}</Text>
+          <S.ScheduleText>
+            <Text>{schedule.location}에</Text>
+            <Text>{schedule.menuName} 밥묵기</Text>
+          </S.ScheduleText>
         </View>
       ) : (
-        <Text>아쉽지만 오늘의 일정은 없어요</Text>
+        <S.NoSchedule>아쉽지만 오늘의 일정은 없어요</S.NoSchedule>
       )}
-    </View>
+    </S.Container>
   );
 };
 
