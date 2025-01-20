@@ -73,6 +73,7 @@ const ShowToday = () => {
         }}
         locale="ko"
         onDayPress={(d: Day) => {
+          AsyncStorage.removeItem("selectedDate");
           AsyncStorage.setItem("selectedDate", d.dateString);
           setSelectedDate(d.dateString);
         }}
