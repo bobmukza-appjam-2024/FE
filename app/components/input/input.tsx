@@ -8,7 +8,7 @@ interface InputProps {
 const Input = ({ label, setValue }: InputProps) => {
   return (
     <View>
-      <label htmlFor={label}></label>
+      <label htmlFor={label}>{label}</label>
       <input id={label} onChange={(e) => setValue(e.target.value)} />;
     </View>
   );
