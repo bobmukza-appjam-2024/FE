@@ -1,13 +1,13 @@
 import React from "react";
 import * as S from "./styles";
 
-interface InputProps {
+interface TextareaProps {
   label: string;
   placeholder?: string;
   setValue: (value: string) => void;
 }
 
-const Input = ({ label, placeholder, setValue }: InputProps) => {
+const Textarea = ({ label, placeholder, setValue }: TextareaProps) => {
   return (
     <S.Container>
       <S.Label>{label}</S.Label>
@@ -20,4 +20,4 @@ const Input = ({ label, placeholder, setValue }: InputProps) => {
   );
 };
 
-export default Input;
+export default Textarea;
