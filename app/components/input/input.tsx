@@ -1,16 +1,24 @@
-import { View } from "react-native";
+import React from "react";
+import { TextInput, Text, View } from "react-native";
+import * as S from "./styles";
 
 interface InputProps {
   label: string;
+  placeholder?: string;
   setValue: (value: string) => void;
 }
 
-const Input = ({ label, setValue }: InputProps) => {
+const Input = ({ label, placeholder, setValue }: InputProps) => {
   return (
-    <View>
-      <label htmlFor={label}>{label}</label>
-      <input id={label} onChange={(e) => setValue(e.target.value)} />;
-    </View>
+    <S.Container>
+      <S.Label>{label}</S.Label>
+      <S.InputStyle
+        onChangeText={(text: string) => setValue(text)}
+        placeholder={placeholder}
+        accessibilityLabel={label}
+      />
+    </S.Container>
   );
 };
+
 export default Input;
