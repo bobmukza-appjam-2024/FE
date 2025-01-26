@@ -18,6 +18,7 @@ const sendSchedule = ({
         menuName: menuName,
         location: location,
         date: date,
+        mealTime: "점심",
       },
       {
         headers: {
