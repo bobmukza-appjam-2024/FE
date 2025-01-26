@@ -1,6 +1,11 @@
 import * as S from "./styles";
 
-const Button = (label: string, func: () => void) => {
+interface ButtonProps {
+  label: string;
+  func: () => void;
+}
+
+const Button = ({ label, func }: ButtonProps) => {
   return (
     <S.Container onPress={func}>
       <S.Text>{label}</S.Text>
