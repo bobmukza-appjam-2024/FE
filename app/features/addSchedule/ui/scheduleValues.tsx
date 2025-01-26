@@ -10,9 +10,9 @@ import sendSchedule from "../api/sendSchedule";
 
 const ScheduleValues: React.FC = () => {
   const [date, setDate] = useState<Date>(new Date());
-  const [lo, setLo] = useState<string>("");
-  const [food, setFood] = useState<string>("");
-  const [add, setAdd] = useState<string>("");
+  const [location, setLo] = useState<string>("");
+  const [menuName, setFood] = useState<string>("");
+  const [content, setAdd] = useState<string>("");
 
   const onChange = (event: DateTimePickerEvent, selectedDate?: Date) => {
     const currentDate = selectedDate || date;
@@ -42,7 +42,11 @@ const ScheduleValues: React.FC = () => {
         setValue={setAdd}
         placeholder="추가 사항를 입력해주세요"
       />
-      <Button label="생성하기" func={sendSchedule} />
+      <Button
+        label="생성하기"
+        func={sendSchedule}
+        arg={[location, menuName, content, date]}
+      />
     </View>
   );
 };
