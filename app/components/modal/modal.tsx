@@ -1,21 +1,36 @@
 import Edit from "@/app/svgs/edit";
 import Write from "@/app/svgs/write";
 import { useRouter } from "expo-router";
-import { Text } from "react-native";
 import * as S from "./styles";
 
-const Modal = () => {
+interface ModalProps {
+  visible: boolean;
+  setVisible: (visible: boolean) => void;
+}
+
+const Modal = ({ visible, setVisible }: ModalProps) => {
   const R = useRouter();
+  if (!visible) return null;
   return (
     <S.Container>
-      <S.Wrapper onPress={() => R.push("/pages/addSchedule")}>
-        <Text>작성하기</Text>
+      <S.Wrapper
+        onPress={() => {
+          R.push("/pages/addSchedule");
+          setVisible(false);
+        }}
+      >
+        <S.Text>작성하기</S.Text>
         <Write />
       </S.Wrapper>
-      <S.Wrapper onPress={() => R.push("/pages/addSchedule")}>
-        <Text>수정하기</Text>
+      <S.Wrapper2
+        onPress={() => {
+          R.push("/pages/addSchedule");
+          setVisible(false);
+        }}
+      >
+        <S.Text>수정하기</S.Text>
         <Edit />
-      </S.Wrapper>
+      </S.Wrapper2>
     </S.Container>
   );
 };
