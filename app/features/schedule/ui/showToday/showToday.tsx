@@ -1,8 +1,11 @@
 import React, { useState } from "react";
-import { View } from "react-native";
 import { Calendar, LocaleConfig } from "react-native-calendars";
 import { Day } from "@/app/entities/day";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import Options from "@/app/svgs/option";
+import { Container } from "./styles";
+import { TouchableOpacity } from "react-native";
+import Modal from "@/app/components/modal/modal";
 
 LocaleConfig.locales["ko"] = {
   monthNames: [
@@ -49,9 +52,14 @@ LocaleConfig.defaultLocale = "ko";
 
 const ShowToday = () => {
   const [selectedDate, setSelectedDate] = useState("");
+  const [modal, setModal] = useState(false);
 
   return (
-    <View>
+    <Container>
+      <TouchableOpacity onPress={() => setModal(true)}>
+        <Options />
+      </TouchableOpacity>
+      <Modal visible={modal} setVisible={setModal} />
       <Calendar
         markedDates={{
           [selectedDate]: {
@@ -78,7 +86,7 @@ const ShowToday = () => {
           setSelectedDate(d.dateString);
         }}
       />
-    </View>
+    </Container>
   );
 };
 
