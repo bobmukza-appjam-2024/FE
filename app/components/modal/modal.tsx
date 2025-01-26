@@ -12,12 +12,11 @@ const Modal = ({ visible, setVisible }: ModalProps) => {
   const R = useRouter();
   if (!visible) return null;
   return (
-    <S.LargeContainer onPress={() => setVisible(false)}>
+    <S.LargeContainer>
       <S.Container>
         <S.Wrapper
           onPress={() => {
             R.push("/pages/addSchedule");
-            setVisible(false);
           }}
         >
           <S.Text>작성하기</S.Text>
@@ -26,7 +25,6 @@ const Modal = ({ visible, setVisible }: ModalProps) => {
         <S.Wrapper2
           onPress={() => {
             R.push("/pages/addSchedule");
-            setVisible(false);
           }}
         >
           <S.Text>수정하기</S.Text>

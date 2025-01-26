@@ -16,7 +16,7 @@ export const LargeContainer = styled.TouchableOpacity`
   z-index: 99;
 `;
 
-export const Wrapper = styled.View`
+export const Wrapper = styled.TouchableOpacity`
   padding: 15px;
   gap: 10px;
   align-items: center;
@@ -28,7 +28,7 @@ export const Wrapper = styled.View`
   text-align: center;
 `;
 
-export const Wrapper2 = styled.View`
+export const Wrapper2 = styled.TouchableOpacity`
   padding: 15px;
   text-align: center;
   gap: 10px;
