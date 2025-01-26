@@ -14,13 +14,16 @@ const MyDateTimePicker: React.FC = () => {
 
   return (
     <View>
-      <DateTimePicker
-        value={date}
-        mode="datetime"
-        display="default"
-        onChange={onChange}
-        locale="ko"
-      />
+      <View>
+        <Text style={{ color: "#6E6e6e", margin: 10, fontSize: 14 }}>날짜</Text>
+        <DateTimePicker
+          value={date}
+          mode="datetime"
+          display="default"
+          onChange={onChange}
+          locale="ko"
+        />
+      </View>
     </View>
   );
 };
