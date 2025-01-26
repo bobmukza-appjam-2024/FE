@@ -1,11 +1,10 @@
-import MyDateTimePicker from "@/app/features/addSchedule/ui/dateSelecter";
-import { View } from "react-native";
 import * as S from "./styles";
+import ScheduleValues from "@/app/features/addSchedule/ui/scheduleValues";
 
 export default function AddSchedulePage() {
   return (
     <S.Container>
-      <MyDateTimePicker />
+      <ScheduleValues />
     </S.Container>
   );
 }
