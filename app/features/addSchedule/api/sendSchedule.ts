@@ -2,14 +2,13 @@ import { Schedule } from "@/app/entities/schedule";
 import axios from "axios";
 import { useRouter } from "expo-router";
 
-const R = useRouter();
-
 const sendSchedule = ({
   content,
   menuName,
   location,
   date,
 }: Schedule): void => {
+  const R = useRouter();
   axios
     .post(
       `${process.env.API_URL}/schedule`,
