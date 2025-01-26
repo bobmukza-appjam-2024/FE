@@ -12,7 +12,7 @@ const Modal = ({ visible, setVisible }: ModalProps) => {
   const R = useRouter();
   if (!visible) return null;
   return (
-    <S.LargeContainer>
+    <S.LargeContainer onPress={() => setVisible(false)}>
       <S.Container>
         <S.Wrapper
           onPress={() => {
