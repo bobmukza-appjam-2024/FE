@@ -1,4 +1,4 @@
-import ShowToday from "@/app/features/schedule/ui/showToday";
+import ShowToday from "@/app/features/schedule/ui/showToday/showToday";
 import * as S from "./styles";
 import ShowSchedule from "@/app/features/schedule/ui/showSchdule/showSchedule";
 
