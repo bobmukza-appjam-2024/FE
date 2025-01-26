@@ -1,15 +1,28 @@
-import * as React from "react";
-import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
-import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
-import { DateTimePicker } from "@mui/x-date-pickers/DateTimePicker";
+import React, { useState } from "react";
+import { View, Text } from "react-native";
+import DateTimePicker, {
+  DateTimePickerEvent,
+} from "@react-native-community/datetimepicker";
 
-export default function BasicDateTimePicker() {
+const MyDateTimePicker: React.FC = () => {
+  const [date, setDate] = useState<Date>(new Date());
+
+  const onChange = (event: DateTimePickerEvent, selectedDate?: Date) => {
+    const currentDate = selectedDate || date;
+    setDate(currentDate);
+  };
+
   return (
-    <LocalizationProvider dateAdapter={AdapterDayjs}>
-      <DemoContainer components={["DateTimePicker"]}>
-        <DateTimePicker label="Basic date time picker" />
-      </DemoContainer>
-    </LocalizationProvider>
+    <View>
+      <DateTimePicker
+        value={date}
+        mode="datetime"
+        display="default"
+        onChange={onChange}
+        locale="ko"
+      />
+    </View>
   );
-}
+};
+
+export default MyDateTimePicker;
