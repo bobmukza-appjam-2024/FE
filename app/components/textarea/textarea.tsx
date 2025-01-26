@@ -1,5 +1,6 @@
 import React from "react";
 import * as S from "./styles";
+import { Keyboard, TouchableWithoutFeedback } from "react-native";
 
 interface TextareaProps {
   label: string;
@@ -9,14 +10,17 @@ interface TextareaProps {
 
 const Textarea = ({ label, placeholder, setValue }: TextareaProps) => {
   return (
-    <S.Container>
-      <S.Label>{label}</S.Label>
-      <S.InputStyle
-        onChangeText={(text: string) => setValue(text)}
-        placeholder={placeholder}
-        accessibilityLabel={label}
-      />
-    </S.Container>
+    <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
+      <S.Container>
+        <S.Label>{label}</S.Label>
+        <S.InputStyle
+          multiline
+          onChangeText={(text: string) => setValue(text)}
+          placeholder={placeholder}
+          accessibilityLabel={label}
+        />
+      </S.Container>
+    </TouchableWithoutFeedback>
   );
 };
 
