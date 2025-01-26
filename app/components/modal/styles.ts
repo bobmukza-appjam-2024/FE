@@ -1,18 +1,19 @@
 import styled from "styled-components/native";
 
 export const Container = styled.View`
-  postion: absolute;
   align-items: center;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
   background-color: white;
   justify-content: center;
   width: 40%;
   gap: 10px;
   border-radius: 15px;
-  z-index: 100;
+`;
+
+export const LargeContainer = styled.TouchableOpacity`
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 99;
 `;
 
 export const Wrapper = styled.View`
