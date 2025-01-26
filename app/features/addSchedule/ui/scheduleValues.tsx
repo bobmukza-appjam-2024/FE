@@ -20,9 +20,11 @@ const ScheduleValues: React.FC = () => {
   };
 
   return (
-    <View>
+    <View style={{ width: "100%", gap: 20 }}>
       <View>
-        <Text style={{ color: "#6E6e6e", margin: 10, fontSize: 14 }}>날짜</Text>
+        <Text style={{ color: "#6E6e6e", marginBottom: 10, fontSize: 14 }}>
+          날짜
+        </Text>
         <DateTimePicker
           value={date}
           mode="datetime"
