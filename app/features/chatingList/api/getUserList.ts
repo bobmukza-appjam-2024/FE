@@ -9,5 +9,4 @@ export default async function getUserList(): Promise<User[]> {
     .then((res) => {
       return res.data;
     });
-  throw new Error("Failed to fetch chat list");
 }
