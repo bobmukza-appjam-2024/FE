@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const getProfile = async () => {
+export async function getProfile() {
   try {
     const response = await axios.get(`${process.env.URL}/profile`, {
       headers: {
@@ -11,6 +11,4 @@ const getProfile = async () => {
   } catch (error) {
     console.error(error);
   }
-};
-
-export default getProfile;
+}

@@ -2,7 +2,7 @@ import axios from "axios";
 import { getSelected } from "../store/getSelectedDay";
 import { Schedule } from "@/app/entities/schedule";
 
-const getToday = async (): Promise<Schedule | undefined> => {
+export const getToday = async (): Promise<Schedule | undefined> => {
   const selected = await getSelected();
   const res = await axios.get(
     `${process.env.REACT_APP_API_URL}/schedules?year=${
@@ -20,5 +20,3 @@ const getToday = async (): Promise<Schedule | undefined> => {
     console.log(e);
   }
 };
-
-export default getToday;
