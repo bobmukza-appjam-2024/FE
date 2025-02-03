@@ -1,9 +1,10 @@
-import { Text, View } from "react-native";
-
+import ShowInputs from "@/app/features/signup/ui/showInputs";
+import * as S from "./styles";
 export default function SignUp() {
   return (
-    <View>
-      <Text>Sign Up</Text>
-    </View>
+    <S.ConTainer>
+      <S.Title>회원가입</S.Title>
+      <ShowInputs />
+    </S.ConTainer>
   );
 }
