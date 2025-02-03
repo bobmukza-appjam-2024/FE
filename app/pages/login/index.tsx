@@ -4,6 +4,7 @@ import * as S from "./styles";
 export default function LoginPage() {
   return (
     <S.Container>
+      <S.Title>로그인</S.Title>
       <ShowInputs />
       <S.회원아님Wrapper>
         <S.회원가입Text1>회원이 아니신가요?</S.회원가입Text1>

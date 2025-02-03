@@ -25,3 +25,10 @@ export const 회원가입Text2 = styled.Text`
   font-weight: 400;
   line-height: 22px;
 `;
+
+export const Title = styled.Text`
+  color: #111;
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 40px;
+`;
