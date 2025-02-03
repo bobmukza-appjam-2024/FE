@@ -1,9 +1,10 @@
-import { Link, Stack } from "expo-router";
+import { Link, Redirect, Stack, useSegments } from "expo-router";
 import { StyleSheet, Text, View } from "react-native";
 
 export default function NotFoundScreen() {
   return (
     <View style={styles.container}>
+      <Redirect href={"/pages/login"} />
       <Text style={styles.title}>This screen doesn't exist.</Text>
 
       <Link href="/pages/main" style={styles.link}>
