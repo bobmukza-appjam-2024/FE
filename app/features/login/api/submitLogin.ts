@@ -5,7 +5,7 @@ import { useRouter } from "expo-router";
 export const submitLogin = (email: string, password: string) => {
   const R = useRouter();
   axios
-    .post(`${process.env.REACT_APP_API_URL}/login`, {
+    .post(`${process.env.REACT_APP_API_URL}/auth/login`, {
       email: email,
       password: password,
     })
