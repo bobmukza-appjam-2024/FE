@@ -10,27 +10,29 @@ const ShowInputs = () => {
   const [id, setId] = useState("");
   const [password, setPassword] = useState("");
   return (
-    <View>
-      <Input
-        placeholder="이름을 입력해주세요"
-        setValue={setName}
-        label="이름"
-      />
-      <Input
-        placeholder="생년월일을 입력해주세요 ex) 1999-01-01"
-        setValue={setBirthDate}
-        label="생년월일"
-      />
-      <Input
-        placeholder="아이디를 입력해주세요"
-        setValue={setId}
-        label="아이디"
-      />
-      <Input
-        placeholder="비밀번호를 입력해주세요"
-        setValue={setPassword}
-        label="비밀번호"
-      />
+    <View style={{ gap: 290 }}>
+      <View style={{ gap: 20, marginBottom: 20 }}>
+        <Input
+          placeholder="이름을 입력해주세요"
+          setValue={setName}
+          label="이름"
+        />
+        <Input
+          placeholder="생년월일을 입력해주세요 ex) 1999-01-01"
+          setValue={setBirthDate}
+          label="생년월일"
+        />
+        <Input
+          placeholder="아이디를 입력해주세요"
+          setValue={setId}
+          label="아이디"
+        />
+        <Input
+          placeholder="비밀번호를 입력해주세요"
+          setValue={setPassword}
+          label="비밀번호"
+        />
+      </View>
       <Button
         label="회원가입"
         arg={[name, birthDate, id, password]}
