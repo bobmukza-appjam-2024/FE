@@ -2,11 +2,11 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import axios from "axios";
 import { useRouter } from "expo-router";
 
-export const submitLogin = (email: string, password: string) => {
+export const submitLogin = (id: string, password: string) => {
   const R = useRouter();
   axios
     .post(`${process.env.REACT_APP_API_URL}/auth/login`, {
-      email: email,
+      id: id,
       password: password,
     })
     .then((res) => {
