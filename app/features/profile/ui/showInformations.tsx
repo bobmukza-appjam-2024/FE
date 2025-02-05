@@ -5,6 +5,7 @@ import { getProfile } from "../api/getProfile";
 import ProfileIcon from "@/app/svgs/profile";
 import { Profile } from "@/app/entities/profile";
 import Edit from "@/app/svgs/edit";
+import * as S from "./styles";
 
 const ShowInformations = () => {
   const [profile, setProfile] = useState<Profile | undefined>(undefined);
@@ -23,27 +24,23 @@ const ShowInformations = () => {
   }, [id]);
 
   return (
-    <View>
-      <View>
-        <View>
+    <S.Container>
+      <S.InformCotainer>
+        <S.firstContainer>
           <ProfileIcon />
           <Text>{profile?.nickname}</Text>
           <Edit />
-        </View>
-        <View>
-          <Text>{profile?.introduction}</Text>
-        </View>
-      </View>
-      <View>
-        <View>
-          <Text>취향</Text>
+        </S.firstContainer>
+        <S.introduction>내 소개: {profile?.introduction}</S.introduction>
+      </S.InformCotainer>
+      <S.InformCotainer>
+        <S.firstContainer>
+          <S.favorite>취향</S.favorite>
           <Edit />
-        </View>
-        <View>
-          <Text>{profile?.favoriteMenus[0]}</Text>
-        </View>
-      </View>
-    </View>
+        </S.firstContainer>
+        <S.favoriteText>{profile?.favoriteMenus[0]}</S.favoriteText>
+      </S.InformCotainer>
+    </S.Container>
   );
 };
 
