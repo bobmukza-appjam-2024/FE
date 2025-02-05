@@ -7,7 +7,7 @@ export async function getProfile(): Promise<Profile | undefined> {
   try {
     const response = await axios.get(`${API_URL}/profile`, {
       headers: {
-        Authorization: await getToken(),
+        Authorization: "Bearer " + (await getToken()),
       },
     });
     return response.data;
