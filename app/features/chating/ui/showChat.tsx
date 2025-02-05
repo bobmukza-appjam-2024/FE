@@ -3,7 +3,6 @@ import { Text, TextInput, TouchableOpacity, View } from "react-native";
 import { getMessage } from "../api/getMessage";
 import { Chat } from "@/app/entities/chat";
 import { getToken } from "../../login/api/getToken";
-import Input from "@/app/components/input/input";
 
 const ShowChat = () => {
   const token = getToken();

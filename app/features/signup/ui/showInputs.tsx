@@ -3,12 +3,14 @@ import Input from "@/app/components/input/input";
 import { useState } from "react";
 import { View } from "react-native";
 import { submitSignup } from "../api/submitSignup";
+import { useRouter } from "expo-router";
 
 const ShowInputs = () => {
   const [name, setName] = useState("");
   const [birthDate, setBirthDate] = useState("");
   const [id, setId] = useState("");
   const [password, setPassword] = useState("");
+  const R = useRouter();
   return (
     <View style={{ gap: 290 }}>
       <View style={{ gap: 20, marginBottom: 20 }}>
@@ -35,8 +37,10 @@ const ShowInputs = () => {
       </View>
       <Button
         label="회원가입"
-        arg={[name, birthDate, id, password]}
-        func={submitSignup}
+        func={() => {
+          submitSignup(name, birthDate, id, password);
+          R.push("/pages/login");
+        }}
       />
     </View>
   );
