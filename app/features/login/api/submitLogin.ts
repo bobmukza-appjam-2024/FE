@@ -5,7 +5,7 @@ import axios from "axios";
 export const submitLogin = (id: string, password: string) => {
   axios
     .post(`${API_URL}/auth/login`, {
-      id: id,
+      email: id,
       password: password,
     })
     .then((res) => {
