@@ -1,5 +1,10 @@
-import { View } from "react-native";
+import ShowInformations from "@/app/features/profile/ui/showInformations";
+import { Container } from "./styles";
 
 export default function ProfilePage() {
-  return <View></View>;
+  return (
+    <Container>
+      <ShowInformations />
+    </Container>
+  );
 }
