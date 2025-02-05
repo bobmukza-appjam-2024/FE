@@ -3,10 +3,12 @@ import Input from "@/app/components/input/input";
 import { useState } from "react";
 import { View } from "react-native";
 import { submitLogin } from "../api/submitLogin";
+import { useRouter } from "expo-router";
 
 const ShowInputs = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const R = useRouter();
   return (
     <View style={{ gap: 420 }}>
       <View style={{ gap: 20 }}>
@@ -21,7 +23,13 @@ const ShowInputs = () => {
           label="비밀번호"
         />
       </View>
-      <Button label="로그인" func={() => submitLogin(email, password)} />
+      <Button
+        label="로그인"
+        func={() => {
+          submitLogin(email, password);
+          R.push("/pages/main");
+        }}
+      />
     </View>
   );
 };
