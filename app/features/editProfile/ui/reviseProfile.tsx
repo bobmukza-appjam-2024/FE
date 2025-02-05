@@ -10,7 +10,7 @@ const ReviseProfile = () => {
   const [introduction, setIntroduction] = useState<string>("");
   const [favorite, setFavorite] = useState<string>("");
   return (
-    <View>
+    <View style={{ gap: 20 }}>
       <Input
         label="이름"
         placeholder="이름을 입력해주세요"
