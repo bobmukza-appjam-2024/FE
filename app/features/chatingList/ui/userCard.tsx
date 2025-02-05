@@ -14,7 +14,7 @@ const UserCard = ({ user }: UserCardProps) => {
     <TouchableOpacity
       onPress={() => {
         router.push({
-          pathname: "/pages/chating/[id]/index",
+          pathname: "/pages/chating/[id]",
           params: { id: user.id },
         });
       }}
