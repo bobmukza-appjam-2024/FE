@@ -4,11 +4,13 @@ import { useState } from "react";
 import { View } from "react-native";
 import reviseIntroduce from "../api/reviseIntroduce";
 import Input from "@/app/components/input/input";
+import { useRouter } from "expo-router";
 
 const ReviseProfile = () => {
   const [nickname, setNickname] = useState<string>("");
   const [introduction, setIntroduction] = useState<string>("");
   const [favorite, setFavorite] = useState<string>("");
+  const R = useRouter();
   return (
     <View style={{ gap: 20 }}>
       <Input
@@ -27,8 +29,10 @@ const ReviseProfile = () => {
         setValue={setIntroduction}
       />
       <Button
-        func={reviseIntroduce}
-        arg={[introduction, favorite, nickname]}
+        func={() => {
+          reviseIntroduce({ nickname, introduction, favorite });
+          R.push("/pages/profile");
+        }}
         label="수정하기"
       />
     </View>

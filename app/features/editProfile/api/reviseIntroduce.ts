@@ -1,26 +1,28 @@
 import axios from "axios";
+import { getToken } from "../../login/api/getToken";
+import { API_URL } from "@/constants/url";
 
 interface reviseIntroduceProps {
-  nickname: "string";
-  introduce: string;
-  favoriteMenus: ["string"];
+  nickname: string;
+  introduction: string;
+  favorite: string;
 }
 
-const reviseIntroduce = ({
+const reviseIntroduce = async ({
   nickname,
-  introduce,
-  favoriteMenus,
+  introduction,
+  favorite,
 }: reviseIntroduceProps) => {
   axios.put(
-    `${process.env.URL}/profile`,
+    `${API_URL}/profile`,
     {
       nickname: nickname,
-      introduce: introduce,
-      favoriteMenus: favoriteMenus,
+      introduce: introduction,
+      favoriteMenus: [favorite],
     },
     {
       headers: {
-        // 토큰
+        Authorization: `Bearer ${await getToken()}`,
       },
     }
   );
