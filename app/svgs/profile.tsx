@@ -1,6 +1,6 @@
 import Svg, { G, Path, Rect } from "react-native-svg";
 
-export default function Profile() {
+export default function ProfileIcon() {
   return (
     <Svg width="72" height="72" viewBox="0 0 72 72" fill="none">
       <G clip-path="url(#clip0_1_857)">
