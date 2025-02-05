@@ -1,10 +1,10 @@
 import ReviseProfile from "@/app/features/editProfile/ui/reviseProfile";
-import { View } from "react-native";
+import { Container } from "./styles";
 
 export default function EditProfile() {
   return (
-    <View>
+    <Container>
       <ReviseProfile />
-    </View>
+    </Container>
   );
 }
