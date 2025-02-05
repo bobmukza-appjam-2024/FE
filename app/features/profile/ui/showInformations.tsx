@@ -1,6 +1,6 @@
 import { useLocalSearchParams, useRouter } from "expo-router";
 import { useEffect, useState } from "react";
-import { Text, ActivityIndicator } from "react-native";
+import { Text, ActivityIndicator, View } from "react-native";
 import { getProfile } from "../api/getProfile";
 import ProfileIcon from "@/app/svgs/profile";
 import { Profile } from "@/app/entities/profile";
@@ -47,8 +47,12 @@ const ShowInformations = () => {
     <S.Container>
       <S.InformCotainer>
         <S.firstContainer>
-          <ProfileIcon />
-          <Text>{profile?.nickname || "닉네임 없음"}</Text>
+          <View style={{ flexDirection: "row", gap: 10 }}>
+            <ProfileIcon />
+            <Text style={{ marginTop: 10 }}>
+              {profile?.nickname || "닉네임 없음"}
+            </Text>
+          </View>
           <TouchableOpacity onPress={() => R.push("/pages/editProfile")}>
             <Edit />
           </TouchableOpacity>
