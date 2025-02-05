@@ -1,5 +1,5 @@
+import { API_URL } from "@/constants/url";
 import axios from "axios";
-import { useRouter } from "expo-router";
 
 export const submitSignup = (
   email: string,
@@ -8,13 +8,14 @@ export const submitSignup = (
   birthDate: string
 ) => {
   axios
-    .post(`${process.env.REACT_APP_API_URL}/auth/signup`, {
-      email: email,
-      password: password,
-      nickname: nickname,
-      birthDate: birthDate,
+    .post(`${API_URL}/auth/signup`, {
+      email: nickname,
+      password: birthDate,
+      nickname: email,
+      birthDate: password,
     })
     .catch((e) => {
       console.log(e);
+      console.log(e.response);
     });
 };
