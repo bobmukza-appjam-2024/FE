@@ -11,19 +11,17 @@ import { TouchableOpacity } from "react-native";
 const ShowInformations = () => {
   const R = useRouter();
   const [profile, setProfile] = useState<Profile | undefined>(undefined);
-  const { id } = useLocalSearchParams<{ id?: string }>();
   useEffect(() => {
-    if (!id) return;
     const fetchProfile = async () => {
       try {
-        const profile = await getProfile(id);
+        const profile = await getProfile();
         setProfile(profile);
       } catch (error) {
         console.error("Error fetching profile:", error);
       }
     };
     fetchProfile();
-  }, [id]);
+  }, []);
 
   return (
     <S.Container>
