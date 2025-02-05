@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react";
-import { Text, View } from "react-native";
+import { Text, TextInput, TouchableOpacity, View } from "react-native";
 import { getMessage } from "../api/getMessage";
 import { Chat } from "@/app/entities/chat";
+import { getToken } from "../../login/api/getToken";
+import Input from "@/app/components/input/input";
 
 const ShowChat = () => {
+  const token = getToken();
   const [chats, setChats] = useState<Chat[]>();
   const [message, setMessage] = useState("");
   useEffect(() => {
@@ -14,7 +17,7 @@ const ShowChat = () => {
   return (
     <View>
       {chats?.map((chat) =>
-        chat.senderId === 1 ? (
+        chat.senderId === Number(token) ? (
           <Text>{chat.content}</Text>
         ) : (
           <Text>
@@ -22,6 +25,12 @@ const ShowChat = () => {
           </Text>
         )
       )}
+      <View>
+        <TextInput onChangeText={(text) => setMessage(text)} />
+        <TouchableOpacity>
+          <Text>&gt;</Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 };
