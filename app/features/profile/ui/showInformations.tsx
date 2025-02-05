@@ -40,9 +40,6 @@ const ShowInformations = () => {
       <S.InformCotainer>
         <S.firstContainer>
           <S.favorite>취향</S.favorite>
-          <TouchableOpacity onPress={() => R.push("/pages/editProfile")}>
-            <Edit />
-          </TouchableOpacity>
         </S.firstContainer>
         <S.favoriteText>{profile?.favoriteMenus[0]}</S.favoriteText>
       </S.InformCotainer>
