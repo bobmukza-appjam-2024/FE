@@ -1,4 +1,5 @@
 import { User } from "@/app/entities/user";
+import ProfileIcon from "@/app/svgs/profile";
 import { useRouter } from "expo-router";
 import React from "react";
 import { Image, Text, TouchableOpacity } from "react-native";
@@ -12,6 +13,12 @@ const UserCard = ({ user }: UserCardProps) => {
 
   return (
     <TouchableOpacity
+      style={{
+        flexDirection: "row",
+        alignItems: "center",
+        gap: 10,
+        padding: 10,
+      }}
       onPress={() => {
         router.push({
           pathname: "/pages/chating/[id]",
@@ -19,8 +26,8 @@ const UserCard = ({ user }: UserCardProps) => {
         });
       }}
     >
-      <Image source={require("../../../svgs/profile")} />
-      <Text>{user.nickname}</Text>
+      <ProfileIcon />
+      <Text style={{ fontWeight: 600 }}>{user.nickname}</Text>
     </TouchableOpacity>
   );
 };
