@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Calendar, LocaleConfig } from "react-native-calendars";
 import { Day } from "@/app/entities/day";
 import AsyncStorage from "@react-native-async-storage/async-storage";
@@ -6,6 +6,7 @@ import Options from "@/app/svgs/option";
 import { Container } from "./styles";
 import { TouchableOpacity } from "react-native";
 import Modal from "@/app/components/modal/modal";
+import { getToday } from "../../api/getToday";
 
 LocaleConfig.locales["ko"] = {
   monthNames: [
@@ -54,6 +55,19 @@ const ShowToday = () => {
   const [selectedDate, setSelectedDate] = useState("");
   const [modal, setModal] = useState(false);
 
+  useEffect(() => {
+    const fetchSchedule = async () => {
+      const data = await getToday();
+      console.log("Today's schedule:", data);
+    };
+    fetchSchedule();
+  }, [selectedDate]);
+
+  const handleDayPress = async (d: Day) => {
+    await AsyncStorage.setItem("selected", d.dateString);
+    setSelectedDate(d.dateString);
+  };
+
   return (
     <Container>
       <TouchableOpacity onPress={() => setModal(true)}>
@@ -80,11 +94,7 @@ const ShowToday = () => {
           padding: 10,
         }}
         locale="ko"
-        onDayPress={(d: Day) => {
-          AsyncStorage.removeItem("selectedDate");
-          AsyncStorage.setItem("selectedDate", d.dateString);
-          setSelectedDate(d.dateString);
-        }}
+        onDayPress={handleDayPress}
       />
     </Container>
   );
