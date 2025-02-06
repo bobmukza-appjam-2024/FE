@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Text, View } from "react-native";
-import getToday from "../../api/getToday";
+import { getToday } from "../../api/getToday";
 import { Schedule } from "@/app/entities/schedule";
 import * as S from "./styles";
 
@@ -27,8 +27,7 @@ const ShowSchedule = () => {
         <View>
           <Text>{schedule.date}</Text>
           <S.ScheduleText>
-            <Text>{schedule.location}에</Text>
-            <Text>{schedule.menuName} 밥묵기</Text>
+            <Text>{`${schedule.location}에서 ${schedule.menuName} 밥묵기`}</Text>
           </S.ScheduleText>
         </View>
       ) : (
