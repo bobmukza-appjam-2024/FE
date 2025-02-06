@@ -1,11 +1,13 @@
 import { User } from "@/app/entities/user";
+import { API_URL } from "@/constants/url";
 import axios from "axios";
+import { getToken } from "../../login/api/getToken";
 
 export async function getUserList(): Promise<User[]> {
   return await axios
-    .get(`${process.env.REACT_APP_API_URL}/chats`, {
+    .get(`${API_URL}/chats`, {
       headers: {
-        // 토큰
+        Authorization: "Bearer " + (await getToken()),
       },
     })
     .then((res) => {
