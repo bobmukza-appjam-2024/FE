@@ -7,12 +7,14 @@ import Input from "@/app/components/input/input";
 import Textarea from "@/app/components/textarea/textarea";
 import Button from "@/app/components/button/button";
 import sendSchedule from "../api/sendSchedule";
+import { useRouter } from "expo-router";
 
 const ScheduleValues: React.FC = () => {
   const [date, setDate] = useState<Date>(new Date());
   const [location, setLo] = useState<string>("");
   const [menuName, setFood] = useState<string>("");
   const [content, setAdd] = useState<string>("");
+  const R = useRouter();
 
   const onChange = (event: DateTimePickerEvent, selectedDate?: Date) => {
     const currentDate = selectedDate || date;
@@ -22,7 +24,7 @@ const ScheduleValues: React.FC = () => {
   const formatDate = (date: Date) => {
     const year = date.getFullYear();
     const month = (date.getMonth() + 1).toString().padStart(2, "0");
-    const day = "00";
+    const day = date.getDate().toString().padStart(2, "0");
     const hours = date.getHours().toString().padStart(2, "0");
     const minutes = date.getMinutes().toString().padStart(2, "0");
     const seconds = date.getSeconds().toString().padStart(2, "0");
@@ -60,6 +62,7 @@ const ScheduleValues: React.FC = () => {
         func={() => {
           const formattedDate = formatDate(date);
           sendSchedule({ content, menuName, location, date: formattedDate });
+          R.push("/pages/schedule");
         }}
         arg={[location, menuName, content, date]}
       />

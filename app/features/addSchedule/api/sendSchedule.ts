@@ -1,34 +1,30 @@
 import { Schedule } from "@/app/entities/schedule";
+import { API_URL } from "@/constants/url";
 import axios from "axios";
-import { useRouter } from "expo-router";
+import { getToken } from "../../login/api/getToken";
 
-const sendSchedule = ({
+const sendSchedule = async ({
   content,
   menuName,
   location,
   date,
-}: Schedule): void => {
-  const R = useRouter();
+}: Schedule) => {
   axios
     .post(
-      `${process.env.API_URL}/schedule`,
+      `${API_URL}/schedules`,
       {
         content: content,
         menuName: menuName,
         location: location,
-        date: date,
+        date: date.split(" ")[0],
         mealTime: "점심",
       },
       {
         headers: {
-          // token
+          Authorization: "Bearer " + (await getToken()),
         },
       }
     )
-    .then(() => {
-      alert("일정이 추가되었습니다.");
-      R.push("/pages/schedule");
-    })
     .catch((e) => {
       console.log(e);
     });
