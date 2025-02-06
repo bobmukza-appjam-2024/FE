@@ -19,6 +19,17 @@ const ScheduleValues: React.FC = () => {
     setDate(currentDate);
   };
 
+  const formatDate = (date: Date) => {
+    const year = date.getFullYear();
+    const month = (date.getMonth() + 1).toString().padStart(2, "0");
+    const day = "00";
+    const hours = date.getHours().toString().padStart(2, "0");
+    const minutes = date.getMinutes().toString().padStart(2, "0");
+    const seconds = date.getSeconds().toString().padStart(2, "0");
+
+    return `${year}-${month}-${day} ${hours}-${minutes}-${seconds}`;
+  };
+
   return (
     <View style={{ width: "100%", gap: 20 }}>
       <View>
@@ -46,7 +57,10 @@ const ScheduleValues: React.FC = () => {
       />
       <Button
         label="생성하기"
-        func={sendSchedule}
+        func={() => {
+          const formattedDate = formatDate(date);
+          sendSchedule({ content, menuName, location, date: formattedDate });
+        }}
         arg={[location, menuName, content, date]}
       />
     </View>
