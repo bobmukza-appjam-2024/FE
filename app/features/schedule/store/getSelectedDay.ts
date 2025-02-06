@@ -1,6 +1,5 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export const getSelected = async () => {
-  const selected = await AsyncStorage.getItem("selected");
-  return selected;
+  return await AsyncStorage.getItem("selected");
 };
