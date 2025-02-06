@@ -1,5 +1,5 @@
 import { User } from "@/app/entities/user";
-import getUserList from "@/app/features/chatingList/api/getUserList";
+import { getUserList } from "@/app/features/chatingList/api/getUserList";
 import UserCard from "@/app/features/chatingList/ui/userCard";
 import { useEffect, useState } from "react";
 import { View } from "react-native";
