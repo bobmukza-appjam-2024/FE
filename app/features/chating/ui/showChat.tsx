@@ -9,7 +9,7 @@ const ShowChat = ({ id }: { id: string }) => {
 
   useEffect(() => {
     const fetchMessages = async () => {
-      const messages = await getMessage("1");
+      const messages = await getMessage(id);
       setChats(messages);
     };
 
