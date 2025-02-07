@@ -1,11 +1,13 @@
 import { Chat } from "@/app/entities/chat";
 import axios from "axios";
+import { getToken } from "../../login/api/getToken";
+import { API_URL } from "@/constants/url";
 
 export const getMessage = async (id: string): Promise<Chat[]> => {
   return await axios
-    .get(`${process.env.API_URL}/chats/${id}/messages`, {
+    .get(`${API_URL}/chats/${id}/messages`, {
       headers: {
-        // 토큰
+        Authorization: `Bearer ${getToken()}`,
       },
     })
     .then((res) => {
