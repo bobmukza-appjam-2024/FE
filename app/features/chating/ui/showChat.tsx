@@ -2,30 +2,36 @@ import { useEffect, useState } from "react";
 import { Text, TextInput, TouchableOpacity, View } from "react-native";
 import { getMessage } from "../api/getMessage";
 import { Chat } from "@/app/entities/chat";
-import { getToken } from "../../login/api/getToken";
 
-const ShowChat = () => {
-  const token = getToken();
-  const [chats, setChats] = useState<Chat[]>();
+const ShowChat = ({ id }: { id: string }) => {
+  const [chats, setChats] = useState<Chat[]>([]);
   const [message, setMessage] = useState("");
+
   useEffect(() => {
-    setInterval(async () => {
-      setChats(await getMessage("1"));
-    }, 10000);
+    const fetchMessages = async () => {
+      const messages = await getMessage("1");
+      setChats(messages);
+    };
+
+    fetchMessages();
+    const interval = setInterval(fetchMessages, 10000);
+
+    return () => clearInterval(interval);
   }, []);
+
   return (
     <View>
-      {chats?.map((chat) =>
-        chat.senderId === Number(token) ? (
-          <Text>{chat.content}</Text>
+      {chats.map((chat) =>
+        chat.senderId === Number(id) ? (
+          <Text key={chat.id}>{chat.content}</Text>
         ) : (
-          <Text>
+          <Text key={chat.id}>
             {chat.senderId}: {chat.content}
           </Text>
         )
       )}
       <View>
-        <TextInput onChangeText={(text) => setMessage(text)} />
+        <TextInput onChangeText={(text) => setMessage(text)} value={message} />
         <TouchableOpacity>
           <Text>&gt;</Text>
         </TouchableOpacity>
