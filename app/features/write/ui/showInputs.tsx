@@ -4,8 +4,10 @@ import Textarea from "@/app/components/textarea/textarea";
 import { useState } from "react";
 import { View } from "react-native";
 import { submitPost } from "../api/submitPost";
+import { useRouter } from "expo-router";
 
 const ShowInputs = () => {
+  const R = useRouter();
   const [form, setForm] = useState({
     title: "",
     content: "",
@@ -49,15 +51,17 @@ const ShowInputs = () => {
         setValue={(value) => handleChange("content", value)}
       />
       <Button
-        func={submitPost}
+        func={() => {
+          submitPost(
+            form.title,
+            form.content,
+            form.mealTime,
+            form.location,
+            form.menuName
+          );
+          R.push("/pages/main");
+        }}
         label="생성하기"
-        arg={[
-          form.title,
-          form.content,
-          form.mealTime,
-          form.location,
-          form.menuName,
-        ]}
       />
     </View>
   );
