@@ -8,14 +8,14 @@ interface GetPostsParams {
   mealTime?: string;
 }
 
-export const getPosts = ({
+export const getPosts = async ({
   page,
   mealTime,
-}: GetPostsParams): PostType[] | void => {
+}: GetPostsParams): Promise<void | PostType[]> => {
   axios
     .get(`${API_URL}/posts?page=${page}&size=${3}&mealTime=${mealTime}`, {
       headers: {
-        Authorization: `Bearer ${getToken()}`,
+        Authorization: `Bearer ${await getToken()}`,
       },
     })
     .then((res) => {
