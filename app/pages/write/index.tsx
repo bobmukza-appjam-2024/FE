@@ -1,5 +1,10 @@
-import { View } from "react-native";
+import ShowInputs from "@/app/features/write/ui/showInputs";
+import { Container } from "./styles";
 
 export default function WritePage() {
-  return <View></View>;
+  return (
+    <Container>
+      <ShowInputs />
+    </Container>
+  );
 }
