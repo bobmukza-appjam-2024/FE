@@ -1,14 +1,15 @@
+import { PostType } from "@/app/entities/post";
 import { Text, View } from "react-native";
 
-const Post = () => {
+const Post = (Post: PostType) => {
   return (
     <View>
-      <Text>날짜짜</Text>
+      <Text>{Post.createdAt}</Text>
       <View>
-        <Text>메뉴</Text>
-        <Text>sort</Text>
+        <Text>{Post.menuName}</Text>
+        <Text>{Post.mealTime}</Text>
       </View>
-      <Text>category</Text>
+      <Text>{Post.location}</Text>
     </View>
   );
 };
