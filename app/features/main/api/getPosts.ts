@@ -16,7 +16,7 @@ export const getPosts = ({ page, mealTime }: GetPostsParams): Post | void => {
       },
     })
     .then((res) => {
-      return res.data;
+      return res.data.posts;
     })
     .catch((err) => {
       console.error(err);
