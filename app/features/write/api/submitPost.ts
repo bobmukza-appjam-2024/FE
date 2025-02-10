@@ -1,17 +1,17 @@
 import axios from "axios";
-import { useRouter } from "expo-router";
+import { getToken } from "../../login/api/getToken";
+import { API_URL } from "@/constants/url";
 
-export const submitPost = (
+export const submitPost = async (
   title: string,
   content: string,
   mealTime: string,
   location: string,
   menuName: string
 ) => {
-  const R = useRouter();
   axios
     .post(
-      `${process.env.REACT_APP_API_URL}/post`,
+      `${API_URL}/posts`,
       {
         title: title,
         content: content,
@@ -23,13 +23,11 @@ export const submitPost = (
       },
       {
         headers: {
-          // 토큰
+          Authorization: `Bearer ${await getToken()}`,
         },
       }
     )
-    .then(() => {
-      R.push("/pages/main");
-    })
+    .then(() => {})
     .catch((e) => {
       console.log(e);
     });
